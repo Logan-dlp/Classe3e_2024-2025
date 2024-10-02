@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Trading
+namespace AmazingShop.Trading
 {
     public class MoneyManagement : MonoBehaviour
     {
