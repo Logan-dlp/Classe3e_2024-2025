@@ -9,6 +9,7 @@ namespace Trading
 
         public void AddMoney(int moneyToAdd)
         {
+            if (moneyToAdd < 0) Debug.LogWarning("Please note that the value added to the currency is negative.");
             _moneyCount += moneyToAdd;
         }
 
