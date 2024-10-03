@@ -997,7 +997,6 @@ GameObject:
   - component: {fileID: 511614847}
   - component: {fileID: 511614846}
   - component: {fileID: 511614845}
-  - component: {fileID: 511614848}
   m_Layer: 5
   m_Name: Sell
   m_TagString: Untagged
@@ -1069,17 +1068,29 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 511614848}
-        m_TargetAssemblyTypeName: UI.ChangeUIScreen, Assembly-CSharp
-        m_MethodName: ChangeScreen
-        m_Mode: 2
+      - m_Target: {fileID: 1459463636}
+        m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
+        m_MethodName: set_enabled
+        m_Mode: 6
         m_Arguments:
-          m_ObjectArgument: {fileID: 157128460}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Canvas, UnityEngine
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 157128460}
+        m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
+        m_MethodName: set_enabled
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
         m_CallState: 2
 --- !u!114 &511614846
 MonoBehaviour:
@@ -1119,19 +1130,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 511614843}
   m_CullTransparentMesh: 1
---- !u!114 &511614848
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 511614843}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1aabec43125f10140a2ae911078303be, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _canvasToClose: {fileID: 1459463636}
 --- !u!1 &526259152
 GameObject:
   m_ObjectHideFlags: 0
@@ -1290,7 +1288,6 @@ GameObject:
   - component: {fileID: 547409835}
   - component: {fileID: 547409834}
   - component: {fileID: 547409833}
-  - component: {fileID: 547409832}
   m_Layer: 5
   m_Name: Return
   m_TagString: Untagged
@@ -1318,19 +1315,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &547409832
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 547409830}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1aabec43125f10140a2ae911078303be, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _canvasToClose: {fileID: 46944583}
 --- !u!114 &547409833
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1375,17 +1359,29 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 547409832}
-        m_TargetAssemblyTypeName: UI.ChangeUIScreen, Assembly-CSharp
-        m_MethodName: ChangeScreen
-        m_Mode: 2
+      - m_Target: {fileID: 46944583}
+        m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
+        m_MethodName: set_enabled
+        m_Mode: 6
         m_Arguments:
-          m_ObjectArgument: {fileID: 1459463636}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Canvas, UnityEngine
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1459463636}
+        m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
+        m_MethodName: set_enabled
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
         m_CallState: 2
 --- !u!114 &547409834
 MonoBehaviour:
@@ -1636,7 +1632,6 @@ GameObject:
   - component: {fileID: 803421229}
   - component: {fileID: 803421228}
   - component: {fileID: 803421227}
-  - component: {fileID: 803421226}
   m_Layer: 5
   m_Name: Return
   m_TagString: Untagged
@@ -1664,19 +1659,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &803421226
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 803421224}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1aabec43125f10140a2ae911078303be, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _canvasToClose: {fileID: 157128460}
 --- !u!114 &803421227
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1721,17 +1703,29 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 803421226}
-        m_TargetAssemblyTypeName: UI.ChangeUIScreen, Assembly-CSharp
-        m_MethodName: ChangeScreen
-        m_Mode: 2
+      - m_Target: {fileID: 157128460}
+        m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
+        m_MethodName: set_enabled
+        m_Mode: 6
         m_Arguments:
-          m_ObjectArgument: {fileID: 1459463636}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Canvas, UnityEngine
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1459463636}
+        m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
+        m_MethodName: set_enabled
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
         m_CallState: 2
 --- !u!114 &803421228
 MonoBehaviour:
@@ -1993,7 +1987,6 @@ GameObject:
   - component: {fileID: 1249605776}
   - component: {fileID: 1249605775}
   - component: {fileID: 1249605774}
-  - component: {fileID: 1249605777}
   m_Layer: 5
   m_Name: Return
   m_TagString: Untagged
@@ -2065,17 +2058,29 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1249605777}
-        m_TargetAssemblyTypeName: UI.ChangeUIScreen, Assembly-CSharp
-        m_MethodName: ChangeScreen
-        m_Mode: 2
+      - m_Target: {fileID: 1989777054}
+        m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
+        m_MethodName: set_enabled
+        m_Mode: 6
         m_Arguments:
-          m_ObjectArgument: {fileID: 1459463636}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Canvas, UnityEngine
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1459463636}
+        m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
+        m_MethodName: set_enabled
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
         m_CallState: 2
 --- !u!114 &1249605775
 MonoBehaviour:
@@ -2115,19 +2120,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1249605772}
   m_CullTransparentMesh: 1
---- !u!114 &1249605777
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1249605772}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1aabec43125f10140a2ae911078303be, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _canvasToClose: {fileID: 1989777054}
 --- !u!1 &1253463279
 GameObject:
   m_ObjectHideFlags: 0
@@ -3290,7 +3282,6 @@ GameObject:
   - component: {fileID: 2055660610}
   - component: {fileID: 2055660609}
   - component: {fileID: 2055660608}
-  - component: {fileID: 2055660607}
   m_Layer: 5
   m_Name: Buy
   m_TagString: Untagged
@@ -3318,19 +3309,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &2055660607
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2055660605}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1aabec43125f10140a2ae911078303be, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _canvasToClose: {fileID: 1459463636}
 --- !u!114 &2055660608
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3375,17 +3353,29 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2055660607}
-        m_TargetAssemblyTypeName: UI.ChangeUIScreen, Assembly-CSharp
-        m_MethodName: ChangeScreen
-        m_Mode: 2
+      - m_Target: {fileID: 1459463636}
+        m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
+        m_MethodName: set_enabled
+        m_Mode: 6
         m_Arguments:
-          m_ObjectArgument: {fileID: 1989777054}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Canvas, UnityEngine
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1989777054}
+        m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
+        m_MethodName: set_enabled
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
         m_CallState: 2
 --- !u!114 &2055660609
 MonoBehaviour:
@@ -3437,7 +3427,6 @@ GameObject:
   - component: {fileID: 2078991344}
   - component: {fileID: 2078991343}
   - component: {fileID: 2078991342}
-  - component: {fileID: 2078991341}
   m_Layer: 5
   m_Name: Inventory
   m_TagString: Untagged
@@ -3465,19 +3454,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &2078991341
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2078991339}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1aabec43125f10140a2ae911078303be, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _canvasToClose: {fileID: 1459463636}
 --- !u!114 &2078991342
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3522,17 +3498,29 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2078991341}
-        m_TargetAssemblyTypeName: UI.ChangeUIScreen, Assembly-CSharp
-        m_MethodName: ChangeScreen
-        m_Mode: 2
+      - m_Target: {fileID: 1459463636}
+        m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
+        m_MethodName: set_enabled
+        m_Mode: 6
         m_Arguments:
-          m_ObjectArgument: {fileID: 46944583}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Canvas, UnityEngine
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 46944583}
+        m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
+        m_MethodName: set_enabled
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
         m_CallState: 2
 --- !u!114 &2078991343
 MonoBehaviour:
