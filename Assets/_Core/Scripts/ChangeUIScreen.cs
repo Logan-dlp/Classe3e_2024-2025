@@ -1,18 +1,16 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 
-namespace UI
+namespace AmazingShop.Display
 { 
     public class ChangeUIScreen : MonoBehaviour
     {
-        [SerializeField] private GameObject _panelToClose;
+        [SerializeField] private Canvas _canvasToClose;
         
-        public void ChangeScreen(GameObject _sceneToOpen)
+        public void ChangeScreen(Canvas _canvasToOpen)
         {
-            _panelToClose.SetActive(false);
-            _sceneToOpen.SetActive(true);
+            _canvasToClose.enabled = !_canvasToClose.enabled;
+            _canvasToOpen.enabled = !_canvasToOpen.enabled;
         }
     }
 }

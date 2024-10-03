@@ -133,13 +133,15 @@ GameObject:
   - component: {fileID: 46944580}
   - component: {fileID: 46944582}
   - component: {fileID: 46944581}
+  - component: {fileID: 46944583}
+  - component: {fileID: 46944584}
   m_Layer: 5
   m_Name: Inventory
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &46944580
 RectTransform:
   m_ObjectHideFlags: 0
@@ -199,6 +201,46 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 46944579}
   m_CullTransparentMesh: 1
+--- !u!223 &46944583
+Canvas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 46944579}
+  m_Enabled: 0
+  serializedVersion: 3
+  m_RenderMode: 2
+  m_Camera: {fileID: 0}
+  m_PlaneDistance: 100
+  m_PixelPerfect: 0
+  m_ReceivesEvents: 1
+  m_OverrideSorting: 0
+  m_OverridePixelPerfect: 0
+  m_SortingBucketNormalizedSize: 0
+  m_VertexColorAlwaysGammaSpace: 1
+  m_AdditionalShaderChannelsFlag: 25
+  m_UpdateRectTransformForStandalone: 0
+  m_SortingLayerID: 0
+  m_SortingOrder: 0
+  m_TargetDisplay: 0
+--- !u!114 &46944584
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 46944579}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc42784cf147c0c48a680349fa168899, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_IgnoreReversedGraphics: 1
+  m_BlockingObjects: 0
+  m_BlockingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
 --- !u!1 &157128456
 GameObject:
   m_ObjectHideFlags: 0
@@ -210,13 +252,15 @@ GameObject:
   - component: {fileID: 157128457}
   - component: {fileID: 157128459}
   - component: {fileID: 157128458}
+  - component: {fileID: 157128460}
+  - component: {fileID: 157128461}
   m_Layer: 5
   m_Name: Sell
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &157128457
 RectTransform:
   m_ObjectHideFlags: 0
@@ -276,6 +320,46 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 157128456}
   m_CullTransparentMesh: 1
+--- !u!223 &157128460
+Canvas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 157128456}
+  m_Enabled: 0
+  serializedVersion: 3
+  m_RenderMode: 2
+  m_Camera: {fileID: 0}
+  m_PlaneDistance: 100
+  m_PixelPerfect: 0
+  m_ReceivesEvents: 1
+  m_OverrideSorting: 0
+  m_OverridePixelPerfect: 0
+  m_SortingBucketNormalizedSize: 0
+  m_VertexColorAlwaysGammaSpace: 1
+  m_AdditionalShaderChannelsFlag: 25
+  m_UpdateRectTransformForStandalone: 0
+  m_SortingLayerID: 0
+  m_SortingOrder: 0
+  m_TargetDisplay: 0
+--- !u!114 &157128461
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 157128456}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc42784cf147c0c48a680349fa168899, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_IgnoreReversedGraphics: 1
+  m_BlockingObjects: 0
+  m_BlockingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
 --- !u!1 &207015039
 GameObject:
   m_ObjectHideFlags: 0
@@ -990,8 +1074,8 @@ MonoBehaviour:
         m_MethodName: ChangeScreen
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 157128456}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_ObjectArgument: {fileID: 157128460}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Canvas, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -1047,7 +1131,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1aabec43125f10140a2ae911078303be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _panelToClose: {fileID: 1459463632}
+  _canvasToClose: {fileID: 1459463636}
 --- !u!1 &526259152
 GameObject:
   m_ObjectHideFlags: 0
@@ -1060,6 +1144,7 @@ GameObject:
   - component: {fileID: 526259156}
   - component: {fileID: 526259155}
   - component: {fileID: 526259154}
+  - component: {fileID: 526259157}
   m_Layer: 5
   m_Name: Quit
   m_TagString: Untagged
@@ -1130,7 +1215,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 526259155}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 526259157}
+        m_TargetAssemblyTypeName: QuitGame, Assembly-CSharp
+        m_MethodName: CloseGame
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &526259155
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1169,6 +1266,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 526259152}
   m_CullTransparentMesh: 1
+--- !u!114 &526259157
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 526259152}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 01ee5ead2ed499c4daaa36133a62c617, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &547409830
 GameObject:
   m_ObjectHideFlags: 0
@@ -1221,7 +1330,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1aabec43125f10140a2ae911078303be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _panelToClose: {fileID: 46944579}
+  _canvasToClose: {fileID: 46944583}
 --- !u!114 &547409833
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1271,8 +1380,8 @@ MonoBehaviour:
         m_MethodName: ChangeScreen
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 1459463632}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_ObjectArgument: {fileID: 1459463636}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Canvas, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -1567,7 +1676,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1aabec43125f10140a2ae911078303be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _panelToClose: {fileID: 157128456}
+  _canvasToClose: {fileID: 157128460}
 --- !u!114 &803421227
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1617,8 +1726,8 @@ MonoBehaviour:
         m_MethodName: ChangeScreen
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 1459463632}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_ObjectArgument: {fileID: 1459463636}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Canvas, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -1961,8 +2070,8 @@ MonoBehaviour:
         m_MethodName: ChangeScreen
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 1459463632}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_ObjectArgument: {fileID: 1459463636}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Canvas, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -2018,7 +2127,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1aabec43125f10140a2ae911078303be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _panelToClose: {fileID: 1989777050}
+  _canvasToClose: {fileID: 1989777054}
 --- !u!1 &1253463279
 GameObject:
   m_ObjectHideFlags: 0
@@ -2219,7 +2328,7 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
+    rgba: 4278190080
   m_fontColor: {r: 0, g: 0, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
@@ -2300,7 +2409,7 @@ GameObject:
   - component: {fileID: 1351930118}
   - component: {fileID: 1351930117}
   m_Layer: 5
-  m_Name: Canvas
+  m_Name: UI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2537,6 +2646,8 @@ GameObject:
   - component: {fileID: 1459463633}
   - component: {fileID: 1459463635}
   - component: {fileID: 1459463634}
+  - component: {fileID: 1459463636}
+  - component: {fileID: 1459463637}
   m_Layer: 5
   m_Name: TitleScreen
   m_TagString: Untagged
@@ -2604,6 +2715,46 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1459463632}
   m_CullTransparentMesh: 1
+--- !u!223 &1459463636
+Canvas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1459463632}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_RenderMode: 2
+  m_Camera: {fileID: 0}
+  m_PlaneDistance: 100
+  m_PixelPerfect: 0
+  m_ReceivesEvents: 1
+  m_OverrideSorting: 0
+  m_OverridePixelPerfect: 0
+  m_SortingBucketNormalizedSize: 0
+  m_VertexColorAlwaysGammaSpace: 1
+  m_AdditionalShaderChannelsFlag: 25
+  m_UpdateRectTransformForStandalone: 0
+  m_SortingLayerID: 0
+  m_SortingOrder: 0
+  m_TargetDisplay: 0
+--- !u!114 &1459463637
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1459463632}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc42784cf147c0c48a680349fa168899, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_IgnoreReversedGraphics: 1
+  m_BlockingObjects: 0
+  m_BlockingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
 --- !u!1 &1663763709
 GameObject:
   m_ObjectHideFlags: 0
@@ -2670,7 +2821,7 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
+    rgba: 4278190080
   m_fontColor: {r: 0, g: 0, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
@@ -2804,7 +2955,7 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
+    rgba: 4278190080
   m_fontColor: {r: 0, g: 0, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
@@ -3019,13 +3170,15 @@ GameObject:
   - component: {fileID: 1989777051}
   - component: {fileID: 1989777053}
   - component: {fileID: 1989777052}
+  - component: {fileID: 1989777054}
+  - component: {fileID: 1989777055}
   m_Layer: 5
   m_Name: Buy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1989777051
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3085,6 +3238,46 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1989777050}
   m_CullTransparentMesh: 1
+--- !u!223 &1989777054
+Canvas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1989777050}
+  m_Enabled: 0
+  serializedVersion: 3
+  m_RenderMode: 2
+  m_Camera: {fileID: 0}
+  m_PlaneDistance: 100
+  m_PixelPerfect: 0
+  m_ReceivesEvents: 1
+  m_OverrideSorting: 0
+  m_OverridePixelPerfect: 0
+  m_SortingBucketNormalizedSize: 0
+  m_VertexColorAlwaysGammaSpace: 1
+  m_AdditionalShaderChannelsFlag: 25
+  m_UpdateRectTransformForStandalone: 0
+  m_SortingLayerID: 0
+  m_SortingOrder: 0
+  m_TargetDisplay: 0
+--- !u!114 &1989777055
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1989777050}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc42784cf147c0c48a680349fa168899, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_IgnoreReversedGraphics: 1
+  m_BlockingObjects: 0
+  m_BlockingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
 --- !u!1 &2055660605
 GameObject:
   m_ObjectHideFlags: 0
@@ -3137,7 +3330,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1aabec43125f10140a2ae911078303be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _panelToClose: {fileID: 1459463632}
+  _canvasToClose: {fileID: 1459463636}
 --- !u!114 &2055660608
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3187,8 +3380,8 @@ MonoBehaviour:
         m_MethodName: ChangeScreen
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 1989777050}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_ObjectArgument: {fileID: 1989777054}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Canvas, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -3284,7 +3477,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1aabec43125f10140a2ae911078303be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _panelToClose: {fileID: 1459463632}
+  _canvasToClose: {fileID: 1459463636}
 --- !u!114 &2078991342
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3334,8 +3527,8 @@ MonoBehaviour:
         m_MethodName: ChangeScreen
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 46944579}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_ObjectArgument: {fileID: 46944583}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Canvas, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
