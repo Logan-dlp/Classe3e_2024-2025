@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c5bcfa1a7031be41afe834ae47b0450, type: 3}
   m_Name: GoldSword
   m_EditorClassIdentifier: 
-  _name: 'Glod Sword '
+  _name: 'Gold Sword '
   _sprite: {fileID: 1359619988, guid: 93205420c49ef814aa18bc98ba9b7978, type: 3}
   _purchasePrice: 20
   _sellingPrice: 23
-  _description: Glod sword with +25% critical cost.
+  _description: Gold sword with +25% critical cost.
   _quantityMax: 3
