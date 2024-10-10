@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -11,6 +12,11 @@ namespace AmazingShop.Events
         private void OnEnable()
         {
             _boolEvent.BoolAction += InvokeEvent;
+        }
+
+        private void OnDisable()
+        {
+            _boolEvent.BoolAction -= InvokeEvent;
         }
 
         private void InvokeEvent(bool value)

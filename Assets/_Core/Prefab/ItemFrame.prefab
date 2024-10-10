@@ -134,5 +134,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _triggerDetail: {fileID: 11400000, guid: ebc450a0906351643ac42b1db291fe19, type: 2}
+  _itemEvent: {fileID: 11400000, guid: 749adaf341b7cf64b91b1993cb7187c0, type: 2}
   _image: {fileID: 1486855610510346288}
-  _text: {fileID: 0}
