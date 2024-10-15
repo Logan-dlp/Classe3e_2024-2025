@@ -1,15 +1,14 @@
-using System;
 using AmazingShop.Item;
 using TMPro;
 using UnityEngine;
 
 public class DisplayItemInfo : MonoBehaviour
 {
-    private bool _folowCursor;
-    public bool FolowCursor
+    private bool _followCursor;
+    public bool FollowCursor
     {
-        get => _folowCursor;
-        set => _folowCursor = value;
+        get => _followCursor;
+        set => _followCursor = value;
     }
 
     [SerializeField] private Vector2 _displayOffset = new(25, -25);
@@ -22,7 +21,7 @@ public class DisplayItemInfo : MonoBehaviour
 
     private void Update()
     {
-        if (_folowCursor)
+        if (_followCursor)
         {
             transform.position = Input.mousePosition + (Vector3)_displayOffset;
         }

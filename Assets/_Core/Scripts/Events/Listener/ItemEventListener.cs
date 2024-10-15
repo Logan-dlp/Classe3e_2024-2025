@@ -1,4 +1,3 @@
-using System;
 using AmazingShop.Item;
 using UnityEngine;
 using UnityEngine.Events;
