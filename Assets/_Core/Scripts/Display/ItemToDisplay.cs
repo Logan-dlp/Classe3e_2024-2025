@@ -1,4 +1,5 @@
 using AmazingShop.Item;
+using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
@@ -10,6 +11,7 @@ namespace AmazingShop.Display
         [SerializeField] private Events.BoolEvent _triggerDetail;
         [SerializeField] private Events.ItemEvent _itemEvent;
         [SerializeField] private Image _image;
+        [SerializeField] private TMP_Text _itemCount;
         
         private ItemData _itemData;
         
@@ -22,6 +24,7 @@ namespace AmazingShop.Display
         public void SendData()
         {
             _image.sprite = _itemData.Sprite;
+            _itemCount.text = _itemData.CurrentQuantity.ToString();
         }
 
         public void OnPointerEnter(PointerEventData eventData)

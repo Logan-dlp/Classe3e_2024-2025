@@ -12,6 +12,7 @@ namespace AmazingShop.Item
         [SerializeField] private int _sellingPrice; // Prix de Vente
         [SerializeField] private string _description;
         [SerializeField] private int _quantityMax;
+        [SerializeField] private int _currentQuantity;
 
         public string Name => _name;
         public Sprite Sprite => _sprite;
@@ -19,5 +20,20 @@ namespace AmazingShop.Item
         public int SellingPrice => _sellingPrice;
         public string Description => _description;
         public int QuantityMax => _quantityMax;
+        public int CurrentQuantity
+        {
+            get => _currentQuantity;
+            set
+            {
+                if (value > _quantityMax)
+                {
+                    _currentQuantity = _quantityMax;
+                }
+                else
+                {
+                    _currentQuantity = value;
+                }
+            }
+        }
     }
 }

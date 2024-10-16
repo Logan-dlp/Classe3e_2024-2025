@@ -23,12 +23,18 @@ namespace AmazingShop.Inventory
         private int _currentPageIndex = 0;
         private const int ItemsPerPage = 10;
 
-        private void Start()
+        private void OnEnable()
         {
             InitializeItems();
             DisplayItems();
             _nextButton.onClick.AddListener(DisplayNextItems);
             _previousButton.onClick.AddListener(DisplayPreviousItems);
+        }
+
+        private void OnDisable()
+        {
+            _nextButton.onClick.RemoveListener(DisplayNextItems);
+            _previousButton.onClick.RemoveListener(DisplayPreviousItems);
         }
 
         private void InitializeItems()
@@ -51,11 +57,10 @@ namespace AmazingShop.Inventory
                 GameObject itemObject = Instantiate(_itemPrefab, _parentItem.transform);
                 ItemData itemData = _itemList[i];
 
-                Image itemImage = itemObject.GetComponent<Image>();
-                itemImage.sprite = itemData.Sprite;
-
                 ItemToDisplay itemToDisplay = itemObject.GetComponent<ItemToDisplay>();
                 itemToDisplay.ItemData = itemData;
+                
+                itemObject.GetComponent<ItemToDisplay>().SendData();
             }
 
             UpdateButtonStates();
