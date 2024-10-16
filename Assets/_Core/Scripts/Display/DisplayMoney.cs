@@ -6,19 +6,11 @@ namespace AmazingShop.Display
 {
     public class DisplayMoney : MonoBehaviour
     {
-        private TMP_Text _moneyTMPText;
-        private MoneyManagement _moneyManagement;
+        [SerializeField] private TextMeshProUGUI _moneyText;
 
-        private void Start()
+        public void Display(int value)
         {
-            _moneyTMPText = GetComponent<TMP_Text>();
-            _moneyManagement = FindObjectOfType<MoneyManagement>();
-            gameObject.SetActive(false);
-        }
-
-        private void OnEnable()
-        {
-            _moneyTMPText.text = "AmazingCoins : " + _moneyManagement.MoneyCount;
+            _moneyText.text = $"Money: {value}";
         }
     }
 }
