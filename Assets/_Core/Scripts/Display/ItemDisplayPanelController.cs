@@ -5,37 +5,36 @@ namespace AmazingShop.Display
 {
     public class ItemDisplayPanelController : MonoBehaviour
     {
-        [SerializeField] private GameObject panel;
-        [SerializeField] private BoolEvent togglePanelEvent;
+        [SerializeField] private GameObject _panel;
+        [SerializeField] private BoolEvent _togglePanelEvent;
+        [SerializeField] private GameObject _inventory;
+        [SerializeField] private GameObject _sell;
 
         private void OnEnable()
         {
-            togglePanelEvent.BoolAction += OnTogglePanel;
+            _togglePanelEvent.BoolAction += OnTogglePanel;
             CheckAndTogglePanel();
         }
 
         private void OnDisable()
         {
-            togglePanelEvent.BoolAction -= OnTogglePanel;
+            _togglePanelEvent.BoolAction -= OnTogglePanel;
         }
 
         private void OnTogglePanel(bool isActive)
         {
-            panel.SetActive(isActive);
+            _panel.SetActive(isActive);
         }
 
         private void CheckAndTogglePanel()
         {
-            GameObject inventory = GameObject.FindGameObjectWithTag("Inventory");
-            GameObject sell = GameObject.FindGameObjectWithTag("Sell");
-
-            if ((inventory != null && IsInHierarchy(inventory)) || (sell != null && IsInHierarchy(sell)))
+            if ((_inventory != null && IsInHierarchy(_inventory)) || (_sell != null && IsInHierarchy(_sell)))
             {
-                togglePanelEvent.InvokeEvent(true);
+                _togglePanelEvent.InvokeEvent(true);
             }
             else
             {
-                togglePanelEvent.InvokeEvent(false);
+                _togglePanelEvent.InvokeEvent(false);
             }
         }
 
