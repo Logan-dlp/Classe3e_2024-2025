@@ -1,8 +1,10 @@
 using UnityEngine;
 using UnityEngine.UI;
 using System.Collections.Generic;
+using AmazingShop.Display;
+using AmazingShop.Item;
 
-namespace AmazingShop.Item
+namespace AmazingShop.Inventory
 {
     public class Inventory : MonoBehaviour
     {
@@ -58,6 +60,9 @@ namespace AmazingShop.Item
 
                 Image itemImage = itemObject.GetComponent<Image>();
                 itemImage.sprite = itemData.Sprite;
+
+                ItemToDisplay itemToDisplay = itemObject.GetComponent<ItemToDisplay>();
+                itemToDisplay.ItemData = itemData;
             }
 
             UpdateButtonStates();
