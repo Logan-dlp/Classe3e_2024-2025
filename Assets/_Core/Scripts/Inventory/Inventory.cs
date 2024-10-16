@@ -2,8 +2,9 @@ using UnityEngine;
 using UnityEngine.UI;
 using System.Collections.Generic;
 using AmazingShop.Display;
+using AmazingShop.Item;
 
-namespace AmazingShop.Item
+namespace AmazingShop.Inventory
 {
     public class Inventory : MonoBehaviour
     {
