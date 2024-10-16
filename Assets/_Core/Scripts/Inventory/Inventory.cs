@@ -43,8 +43,8 @@ namespace AmazingShop.Inventory
                 Destroy(child.gameObject);
             }
 
-            int startIndex = _currentPageIndex * _itemsPerPage;
-            int endIndex = Mathf.Min(startIndex + _itemsPerPage, _itemList.Count);
+            int startIndex = _currentPageIndex * ItemsPerPage;
+            int endIndex = Mathf.Min(startIndex + ItemsPerPage, _itemList.Count);
 
             for (int i = startIndex; i < endIndex; i++)
             {
@@ -63,7 +63,7 @@ namespace AmazingShop.Inventory
 
         private void DisplayNextItems()
         {
-            if ((_currentPageIndex + 1) * _itemsPerPage < _itemList.Count)
+            if ((_currentPageIndex + 1) * ItemsPerPage < _itemList.Count)
             {
                 _currentPageIndex++;
                 DisplayItems();
@@ -81,7 +81,7 @@ namespace AmazingShop.Inventory
 
         private void UpdateButtonStates()
         {
-            _nextButton.interactable = (_currentPageIndex + 1) * _itemsPerPage < _itemList.Count;
+            _nextButton.interactable = (_currentPageIndex + 1) * ItemsPerPage < _itemList.Count;
             _previousButton.interactable = _currentPageIndex > 0;
         }
     }
