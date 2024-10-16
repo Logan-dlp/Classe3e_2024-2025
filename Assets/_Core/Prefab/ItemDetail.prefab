@@ -874,7 +874,7 @@ MonoBehaviour:
   m_fontSizeMax: 20
   m_fontStyle: 0
   m_HorizontalAlignment: 1
-  m_VerticalAlignment: 256
+  m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
@@ -1009,7 +1009,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 670191713406590283}
         m_TargetAssemblyTypeName: DisplayItemInfo, Assembly-CSharp
-        m_MethodName: set_FolowCursor
+        m_MethodName: set_FollowCursor
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
