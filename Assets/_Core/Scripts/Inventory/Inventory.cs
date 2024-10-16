@@ -4,11 +4,16 @@ using System.Collections.Generic;
 
 namespace AmazingShop.Item
 {
-    public class InventoryManager : MonoBehaviour
+    public class Inventory : MonoBehaviour
     {
+        [Header("Initialisation GameObjects")]
         [SerializeField] private GameObject _parentItem;
         [SerializeField] private GameObject _itemPrefab;
+
+        [Header("List of scriptable objects")]
         [SerializeField] private ItemListData _itemDataList;
+
+        [Header("Buttons of inventory")]
         [SerializeField] private Button _nextButton;
         [SerializeField] private Button _previousButton;
 
