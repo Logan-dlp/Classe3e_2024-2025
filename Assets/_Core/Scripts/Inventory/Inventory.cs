@@ -19,28 +19,21 @@ namespace AmazingShop.Inventory
         [SerializeField] private Button _nextButton;
         [SerializeField] private Button _previousButton;
 
-        private List<ItemData> _shuffledItems;
+        private List<ItemData> _items;
         private int _currentPageIndex = 0;
         private const int _itemsPerPage = 10;
 
         private void Start()
         {
-            ShuffleItems();
+            InitializeItems();
             DisplayItems();
             _nextButton.onClick.AddListener(DisplayNextItems);
             _previousButton.onClick.AddListener(DisplayPreviousItems);
         }
 
-        private void ShuffleItems()
+        private void InitializeItems()
         {
-            _shuffledItems = new List<ItemData>(_itemDataList.ItemDataList);
-            for (int i = 0; i < _shuffledItems.Count; i++)
-            {
-                ItemData temp = _shuffledItems[i];
-                int randomIndex = Random.Range(i, _shuffledItems.Count);
-                _shuffledItems[i] = _shuffledItems[randomIndex];
-                _shuffledItems[randomIndex] = temp;
-            }
+            _items = new List<ItemData>(_itemDataList.ItemDataList);
         }
 
         private void DisplayItems()
@@ -51,12 +44,12 @@ namespace AmazingShop.Inventory
             }
 
             int startIndex = _currentPageIndex * _itemsPerPage;
-            int endIndex = Mathf.Min(startIndex + _itemsPerPage, _shuffledItems.Count);
+            int endIndex = Mathf.Min(startIndex + _itemsPerPage, _items.Count);
 
             for (int i = startIndex; i < endIndex; i++)
             {
                 GameObject itemObject = Instantiate(_itemPrefab, _parentItem.transform);
-                ItemData itemData = _shuffledItems[i];
+                ItemData itemData = _items[i];
 
                 Image itemImage = itemObject.GetComponent<Image>();
                 itemImage.sprite = itemData.Sprite;
@@ -70,7 +63,7 @@ namespace AmazingShop.Inventory
 
         private void DisplayNextItems()
         {
-            if ((_currentPageIndex + 1) * _itemsPerPage < _shuffledItems.Count)
+            if ((_currentPageIndex + 1) * _itemsPerPage < _items.Count)
             {
                 _currentPageIndex++;
                 DisplayItems();
@@ -88,7 +81,7 @@ namespace AmazingShop.Inventory
 
         private void UpdateButtonStates()
         {
-            _nextButton.interactable = (_currentPageIndex + 1) * _itemsPerPage < _shuffledItems.Count;
+            _nextButton.interactable = (_currentPageIndex + 1) * _itemsPerPage < _items.Count;
             _previousButton.interactable = _currentPageIndex > 0;
         }
     }
