@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 using System.Collections.Generic;
+using AmazingShop.Display;
 
 namespace AmazingShop.Item
 {
@@ -58,6 +59,9 @@ namespace AmazingShop.Item
 
                 Image itemImage = itemObject.GetComponent<Image>();
                 itemImage.sprite = itemData.Sprite;
+
+                ItemToDisplay itemToDisplay = itemObject.GetComponent<ItemToDisplay>();
+                itemToDisplay.ItemData = itemData;
             }
 
             UpdateButtonStates();
