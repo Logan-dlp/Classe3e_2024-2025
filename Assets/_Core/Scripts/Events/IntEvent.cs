@@ -1,13 +1,16 @@
 using System;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "new_" + nameof(IntEvent), menuName = "Events/Int")]
-public class IntEvent : ScriptableObject
+namespace AmazingShop.Events
 {
-    public Action<int> InAction;
-
-    public void InvokeEvent(int value)
+    [CreateAssetMenu(fileName = "new_" + nameof(IntEvent), menuName = "Events/Int")]
+    public class IntEvent : ScriptableObject
     {
-        InAction?.Invoke(value);
+        public Action<int> InAction;
+
+        public void InvokeEvent(int value)
+        {
+            InAction?.Invoke(value);
+        }
     }
 }

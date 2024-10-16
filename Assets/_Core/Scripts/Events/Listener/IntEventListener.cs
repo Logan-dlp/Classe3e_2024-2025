@@ -2,23 +2,26 @@ using System;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class IntEventListener : MonoBehaviour
+namespace AmazingShop.Events
 {
-    [SerializeField] private IntEvent _intEvent;
-    [SerializeField] private UnityEvent<int> _callbacks;
-
-    private void OnEnable()
+    public class IntEventListener : MonoBehaviour
     {
-        _intEvent.InAction += InvokeEvent;
-    }
+        [SerializeField] private IntEvent _intEvent;
+        [SerializeField] private UnityEvent<int> _callbacks;
 
-    private void OnDisable()
-    {
-        _intEvent.InAction -= InvokeEvent;
-    }
+        private void OnEnable()
+        {
+            _intEvent.InAction += InvokeEvent;
+        }
 
-    private void InvokeEvent(int value)
-    {
-        _callbacks?.Invoke(value);
+        private void OnDisable()
+        {
+            _intEvent.InAction -= InvokeEvent;
+        }
+
+        private void InvokeEvent(int value)
+        {
+            _callbacks?.Invoke(value);
+        }
     }
 }

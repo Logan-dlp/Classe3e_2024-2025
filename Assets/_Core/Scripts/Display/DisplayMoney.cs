@@ -6,11 +6,11 @@ namespace AmazingShop.Display
 {
     public class DisplayMoney : MonoBehaviour
     {
-        [SerializeField] private TextMeshProUGUI _text;
+        [SerializeField] private TextMeshProUGUI _moneyText;
 
         public void Display(int value)
         {
-            _text.text = $"Money: {value}";
+            _moneyText.text = $"Money: {value}";
         }
     }
 }
