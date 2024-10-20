@@ -150,8 +150,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea7c67476030f8646ae4715c9d6ba608, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  panel: {fileID: 5502721192189213345}
-  togglePanelEvent: {fileID: 11400000, guid: f75ba3ea6169c88419ba7a98610d863c, type: 2}
+  _panel: {fileID: 5502721192189213345}
+  _numberInPanel: {fileID: 1157790353986464966}
 --- !u!1 &5502721192189213345
 GameObject:
   m_ObjectHideFlags: 0
