@@ -27,13 +27,19 @@ namespace AmazingShop.Inventory
         
         private Dictionary<ItemData, int> _itemInventoryDictionary = new();
         private List<ItemData> _itemsInventoryList = new();
-        
-        private void OnEnable()
+
+        private void Start()
         {
-            InitializeItems();
-            DisplayItems();
             _nextButton.onClick.AddListener(DisplayNextItems);
             _previousButton.onClick.AddListener(DisplayPreviousItems);
+        }
+
+        private void OnEnable()
+        {
+            _currentPageIndex = 0;
+            
+            InitializeItems();
+            DisplayItems();
         }
 
         private void OnDisable()
