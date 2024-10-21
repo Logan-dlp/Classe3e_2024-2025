@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.UI;
 using System.Collections.Generic;
@@ -26,8 +27,8 @@ namespace AmazingShop.Inventory
         
         private Dictionary<ItemData, int> _itemInventoryDictionary = new();
         private List<ItemData> _itemsInventoryList = new();
-
-        private void Start()
+        
+        private void OnEnable()
         {
             InitializeItems();
             DisplayItems();
@@ -35,8 +36,19 @@ namespace AmazingShop.Inventory
             _previousButton.onClick.AddListener(DisplayPreviousItems);
         }
 
+        private void OnDisable()
+        {
+            foreach (Transform child in _parentItem.transform)
+            {
+                Destroy(child.gameObject);
+            }
+        }
+
         private void InitializeItems()
         {
+            _itemInventoryDictionary.Clear();
+            _itemsInventoryList.Clear();
+            
             foreach (ItemData itemData in _itemDataList.ItemDataList)
             {
                 if (_itemInventoryDictionary.ContainsKey(itemData))
