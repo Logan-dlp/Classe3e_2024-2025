@@ -85,14 +85,14 @@ namespace AmazingShop.Inventory
                 ItemData itemData = _itemsInventoryList[i];
 
                 GameObject itemObject = Instantiate(_itemPrefab, _parentItem.transform);
-                
+
                 if (itemObject.TryGetComponent<Image>(out Image imageComponent))
                 {
                     imageComponent.sprite = itemData.Sprite;
                 }
                 else
                 {
-                    Debug.LogError("Not find Image Component !");
+                    Debug.LogError("Component Image non trouvé !");
                 }
 
                 if (itemObject.TryGetComponent<ItemToDisplay>(out ItemToDisplay itemToDisplay))
@@ -103,10 +103,11 @@ namespace AmazingShop.Inventory
                 if (_activePanel && itemObject.TryGetComponent<ItemPanelController>(out ItemPanelController itemPanelController))
                 {
                     itemPanelController.ActivatePanel();
-                    itemPanelController.SetNumberOnPanel(_itemInventoryDictionary[itemData]);
-                }else if (_activePanel)
+                    itemPanelController.SetNumberOnPanel(itemData.CurrentQuantity);
+                }
+                else if (_activePanel)
                 {
-                    Debug.LogError("Not find ItemPanelController Component !");
+                    Debug.LogError("Component ItemPanelController non trouvé !");
                 }
             }
 

@@ -18,7 +18,11 @@ namespace AmazingShop.Item
         public int PurchasePrice => _purchasePrice;
         public int SellingPrice => _sellingPrice;
         public string Description => _description;
+        public int CurrentQuantity
+        {
+            get => _currentQuantity;
+            set => _currentQuantity = Mathf.Clamp(value, 0, _quantityMax);
+        }
         public int QuantityMax => _quantityMax;
-        public int CurrentQuantity => _currentQuantity;
     }
 }
