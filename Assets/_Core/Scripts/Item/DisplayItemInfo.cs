@@ -25,7 +25,10 @@ namespace AmazingShop.Display
         {
             if (_followCursor)
             {
-                transform.position = Input.mousePosition + (Vector3)_displayOffset;
+                Vector3 pos = Input.mousePosition + (Vector3)_displayOffset;
+                pos.x = Mathf.Clamp(pos.x, Screen.safeArea.xMin, Screen.safeArea.xMax - 400);
+                pos.y = Mathf.Clamp(pos.y, Screen.safeArea.yMin + 450, Screen.safeArea.yMax);
+                transform.position = pos;
             }
         }
 
