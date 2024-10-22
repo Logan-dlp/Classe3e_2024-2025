@@ -9,6 +9,8 @@ namespace AmazingShop.Inventory
 {
     public class DisplayInventoryItem : MonoBehaviour
     {
+        private const int ItemsPerPage = 10;
+
         [Header("Initialisation GameObjects")]
         [SerializeField] private GameObject _parentItem;
         [SerializeField] private GameObject _itemPrefab;
@@ -23,7 +25,6 @@ namespace AmazingShop.Inventory
         [SerializeField] private bool _activePanel;
         
         private int _currentPageIndex;
-        private const int ItemsPerPage = 10;
         
         private Dictionary<ItemData, int> _itemInventoryDictionary = new();
         private List<ItemData> _itemsInventoryList = new();
@@ -81,20 +82,31 @@ namespace AmazingShop.Inventory
 
             for (int i = startIndex; i < endIndex; i++)
             {
-                GameObject itemObject = Instantiate(_itemPrefab, _parentItem.transform);
                 ItemData itemData = _itemsInventoryList[i];
 
-                Image itemImage = itemObject.GetComponent<Image>();
-                itemImage.sprite = itemData.Sprite;
-
-                ItemToDisplay itemToDisplay = itemObject.GetComponent<ItemToDisplay>();
-                itemToDisplay.ItemData = itemData;
-
-                if (_activePanel)
+                GameObject itemObject = Instantiate(_itemPrefab, _parentItem.transform);
+                
+                if (itemObject.TryGetComponent<Image>(out Image imageComponent))
                 {
-                    ItemPanelController panelController = itemObject.GetComponent<ItemPanelController>();
-                    panelController.ActivatePanel();
-                    panelController.SetNumberOnPanel(_itemInventoryDictionary[itemData]);
+                    imageComponent.sprite = itemData.Sprite;
+                }
+                else
+                {
+                    Debug.LogError("Not find Image Component !");
+                }
+
+                if (itemObject.TryGetComponent<ItemToDisplay>(out ItemToDisplay itemToDisplay))
+                {
+                    itemToDisplay.ItemData = itemData;
+                }
+
+                if (_activePanel && itemObject.TryGetComponent<ItemPanelController>(out ItemPanelController itemPanelController))
+                {
+                    itemPanelController.ActivatePanel();
+                    itemPanelController.SetNumberOnPanel(_itemInventoryDictionary[itemData]);
+                }else if (_activePanel)
+                {
+                    Debug.LogError("Not find ItemPanelController Component !");
                 }
             }
 
