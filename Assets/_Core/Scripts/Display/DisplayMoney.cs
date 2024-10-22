@@ -10,7 +10,7 @@ namespace AmazingShop.Display
 
         public void Display(int value)
         {
-            _moneyText.text = $"Money: {value}";
+            _moneyText.text = value.ToString();
         }
     }
 }

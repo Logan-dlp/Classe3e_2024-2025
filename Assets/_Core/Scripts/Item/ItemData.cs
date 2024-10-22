@@ -3,7 +3,7 @@ using UnityEngine.UI;
 
 namespace AmazingShop.Item
 {
-    [CreateAssetMenu(fileName = "new_Item ", menuName = "ScriptableObject / new_Item")]
+    [CreateAssetMenu(fileName = "new_" + nameof(ItemData), menuName = "ScriptableObject/ItemData")]
     public class ItemData : ScriptableObject
     {
         [SerializeField] private string _name;

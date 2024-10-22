@@ -11,12 +11,12 @@ namespace AmazingShop.Events
 
         private void OnEnable()
         {
-            _intEvent.InAction += InvokeEvent;
+            _intEvent.IntAction += InvokeEvent;
         }
 
         private void OnDisable()
         {
-            _intEvent.InAction -= InvokeEvent;
+            _intEvent.IntAction -= InvokeEvent;
         }
 
         private void InvokeEvent(int value)

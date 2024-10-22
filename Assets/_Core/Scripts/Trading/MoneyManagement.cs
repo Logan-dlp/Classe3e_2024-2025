@@ -11,7 +11,7 @@ namespace AmazingShop.Trading
         private int _moneyCount = 0;
         public int MoneyCount => _moneyCount;
 
-        private void OnEnable()
+        private void Start()
         {
             RefreshMoney();
         }
@@ -34,7 +34,10 @@ namespace AmazingShop.Trading
                 Debug.LogWarning("Please note that the value added to the currency is negative.");
             }
             _moneyCount -= moneyToRemove;
-            if (_moneyCount < 0) _moneyCount = 0;
+            if (_moneyCount < 0)
+            {
+                _moneyCount = 0;
+            }
             
             RefreshMoney();
         }
