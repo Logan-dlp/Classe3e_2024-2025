@@ -51,7 +51,12 @@ namespace AmazingShop.Display
                 _buyItemControler.BuyItem();
                 return;
             }
-            _sellItemController.SellItem();
+
+            else if(_sellItemController != null)
+            {
+                _sellItemController.SellItem();
+                return;
+            }
         }
 
         public void SendData()
