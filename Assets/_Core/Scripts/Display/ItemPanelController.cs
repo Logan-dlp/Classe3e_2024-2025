@@ -1,4 +1,3 @@
-using AmazingShop.Events;
 using TMPro;
 using UnityEngine;
 

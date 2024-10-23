@@ -919,7 +919,9 @@ GameObject:
   - component: {fileID: 6955744431515231595}
   - component: {fileID: 5004980234704313812}
   - component: {fileID: 6600592194436289284}
+  - component: {fileID: 6822099315557053639}
   - component: {fileID: 5734614344716422407}
+  - component: {fileID: 9059092447500372454}
   - component: {fileID: 8584457067429330091}
   - component: {fileID: 670191713406590283}
   m_Layer: 5
@@ -991,6 +993,34 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &6822099315557053639
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6093578295553467822}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 879eabf2a569b0b4a8db500a4892454d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _boolEvent: {fileID: 11400000, guid: 2f1126a59a59bc04db3c81287e78bdbd, type: 2}
+  _callbacks:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 670191713406590283}
+        m_TargetAssemblyTypeName: AmazingShop.Display.DisplayItemInfo, Assembly-CSharp
+        m_MethodName: set_FollowCursor
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &5734614344716422407
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1007,9 +1037,9 @@ MonoBehaviour:
   _callbacks:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 670191713406590283}
-        m_TargetAssemblyTypeName: DisplayItemInfo, Assembly-CSharp
-        m_MethodName: set_FollowCursor
+      - m_Target: {fileID: 8808345950686826781}
+        m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
+        m_MethodName: set_enabled
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1019,9 +1049,25 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 8808345950686826781}
-        m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
-        m_MethodName: set_enabled
+--- !u!114 &9059092447500372454
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6093578295553467822}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb6f51ffa1bf22e4597e807dc6012d94, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _vector3Event: {fileID: 11400000, guid: fae50a07e66729e46a3db6ec5b761843, type: 2}
+  _callbacks:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 670191713406590283}
+        m_TargetAssemblyTypeName: AmazingShop.Display.DisplayItemInfo, Assembly-CSharp
+        m_MethodName: SetPosition
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1072,6 +1118,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _displayOffset: {x: 25, y: -25}
+  _panelSize: {x: 1.26, y: 0.42}
   _nameText: {fileID: 4065385206487498860}
   _descriptionText: {fileID: 8723073258332498410}
   _quantityMaxText: {fileID: 3578190489393650223}

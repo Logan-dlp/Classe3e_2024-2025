@@ -122,7 +122,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1486855610510346288}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 239130143721827145}
+        m_TargetAssemblyTypeName: AmazingShop.Display.ItemToDisplay, Assembly-CSharp
+        m_MethodName: BuySellItem
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &239130143721827145
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -136,7 +148,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _triggerDetail: {fileID: 11400000, guid: ebc450a0906351643ac42b1db291fe19, type: 2}
+  _usePointer: {fileID: 11400000, guid: 2f1126a59a59bc04db3c81287e78bdbd, type: 2}
   _itemEvent: {fileID: 11400000, guid: 749adaf341b7cf64b91b1993cb7187c0, type: 2}
+  _vectorEvent: {fileID: 11400000, guid: fae50a07e66729e46a3db6ec5b761843, type: 2}
   _image: {fileID: 1486855610510346288}
 --- !u!114 &708376703711496732
 MonoBehaviour:

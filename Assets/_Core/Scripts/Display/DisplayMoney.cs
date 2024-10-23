@@ -1,4 +1,3 @@
-using AmazingShop.Trading;
 using TMPro;
 using UnityEngine;
 
