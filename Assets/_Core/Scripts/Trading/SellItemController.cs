@@ -1,4 +1,5 @@
 using AmazingShop.Display;
+using AmazingShop.Inventory;
 using AmazingShop.Item;
 using AmazingShop.Trading;
 using UnityEngine;
@@ -8,11 +9,13 @@ public class SellItemController : MonoBehaviour, IPointerClickHandler
 {
     private ItemToDisplay _itemToDisplay;
     private MoneyManagement _moneyManagement;
+    private DisplayInventoryItem _displayInventory;
 
     private void Start()
     {
         _itemToDisplay = GetComponentInChildren<ItemToDisplay>();
         _moneyManagement = FindObjectOfType<MoneyManagement>();
+        _displayInventory = FindObjectOfType<DisplayInventoryItem>();
     }
 
     public void OnPointerClick(PointerEventData eventData)
@@ -36,6 +39,7 @@ public class SellItemController : MonoBehaviour, IPointerClickHandler
 
                 if (clickedItemData.CurrentQuantity == 0)
                 {
+                    _displayInventory.RemoveItem(clickedItemData);
                     Destroy(_itemToDisplay.gameObject);
                 }
             }

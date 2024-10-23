@@ -63,15 +63,8 @@ namespace AmazingShop.Inventory
             {
                 if (itemData.CurrentQuantity > 0)
                 {
-                    if (_itemInventoryDictionary.ContainsKey(itemData))
-                    {
-                        _itemInventoryDictionary[itemData] += 1;
-                    }
-                    else
-                    {
-                        _itemInventoryDictionary.Add(itemData, 1);
-                        _itemsInventoryList.Add(itemData);
-                    }
+                    _itemInventoryDictionary[itemData] = itemData.CurrentQuantity;
+                    _itemsInventoryList.Add(itemData);
                 }
             }
         }
@@ -107,7 +100,7 @@ namespace AmazingShop.Inventory
 
                     if (_sellCanvas.activeInHierarchy)
                     {
-                        SellItemController sellItemController = itemObject.gameObject.AddComponent<SellItemController>();
+                        SellItemController sellItemController = itemObject.AddComponent<SellItemController>();
                     }
                 }
 
@@ -147,6 +140,20 @@ namespace AmazingShop.Inventory
         {
             _nextButton.interactable = (_currentPageIndex + 1) * ItemsPerPage < _itemsInventoryList.Count;
             _previousButton.interactable = _currentPageIndex > 0;
+        }
+
+        public void RemoveItem(ItemData itemData)
+        {
+            if (_itemsInventoryList.Contains(itemData))
+            {
+                _itemsInventoryList.Remove(itemData);
+
+                if (_currentPageIndex >= (_itemsInventoryList.Count + ItemsPerPage - 1) / ItemsPerPage)
+                {
+                    _currentPageIndex--;
+                }
+                DisplayItems();
+            }
         }
     }
 }
