@@ -17,4 +17,5 @@ MonoBehaviour:
   _purchasePrice: 15
   _sellingPrice: 18
   _description: Material that can be melted
+  _currentQuantity: 1
   _quantityMax: 20

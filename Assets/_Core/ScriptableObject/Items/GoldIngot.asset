@@ -18,4 +18,5 @@ MonoBehaviour:
   _sellingPrice: 23
   _description: 'Gold ingots are 99.9% gold ore. Ingots are manufactured using two
     industrial processes: casting and extrusion.'
+  _currentQuantity: 1
   _quantityMax: 20

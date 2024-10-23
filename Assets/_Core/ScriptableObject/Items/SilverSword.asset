@@ -17,4 +17,5 @@ MonoBehaviour:
   _purchasePrice: 15
   _sellingPrice: 17
   _description: Silver sword with +5% critical cost.
+  _currentQuantity: 1
   _quantityMax: 3

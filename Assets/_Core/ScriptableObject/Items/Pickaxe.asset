@@ -17,4 +17,5 @@ MonoBehaviour:
   _purchasePrice: 14
   _sellingPrice: 16
   _description: A stone tool to throw at your skull
+  _currentQuantity: 1
   _quantityMax: 3

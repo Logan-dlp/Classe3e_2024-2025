@@ -17,4 +17,5 @@ MonoBehaviour:
   _purchasePrice: 20
   _sellingPrice: 23
   _description: Bow used to attack enemies in ranged combat
+  _currentQuantity: 1
   _quantityMax: 5

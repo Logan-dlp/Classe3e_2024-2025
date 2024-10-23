@@ -18,4 +18,5 @@ MonoBehaviour:
   _sellingPrice: 3
   _description: Arrow Throwing weapon consisting of a rod with a point at one end
     and a tail at the other, can only be used with a bow.
+  _currentQuantity: 1
   _quantityMax: 30

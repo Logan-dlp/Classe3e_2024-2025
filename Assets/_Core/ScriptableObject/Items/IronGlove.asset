@@ -18,4 +18,5 @@ MonoBehaviour:
   _sellingPrice: 15
   _description: Pair of dark brown leather gloves covered on iron rings outside mesh
     to protect hands.
+  _currentQuantity: 1
   _quantityMax: 5

@@ -17,4 +17,5 @@ MonoBehaviour:
   _purchasePrice: 20
   _sellingPrice: 23
   _description: Gold sword with +25% critical cost.
+  _currentQuantity: 1
   _quantityMax: 3

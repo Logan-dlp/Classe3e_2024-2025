@@ -22,10 +22,13 @@ namespace AmazingShop.Inventory
         [SerializeField] private Button _nextButton;
         [SerializeField] private Button _previousButton;
 
+        [Header("GameObject du canvas Sell")]
+        [SerializeField] private GameObject _sellCanvas;
+
         [SerializeField] private bool _activePanel;
-        
+
         private int _currentPageIndex;
-        
+
         private Dictionary<ItemData, int> _itemInventoryDictionary = new();
         private List<ItemData> _itemsInventoryList = new();
 
@@ -38,7 +41,7 @@ namespace AmazingShop.Inventory
         private void OnEnable()
         {
             _currentPageIndex = 0;
-            
+
             InitializeItems();
             DisplayItems();
         }
@@ -55,17 +58,20 @@ namespace AmazingShop.Inventory
         {
             _itemInventoryDictionary.Clear();
             _itemsInventoryList.Clear();
-            
+
             foreach (ItemData itemData in _itemDataList.ItemDataList)
             {
-                if (_itemInventoryDictionary.ContainsKey(itemData))
+                if (itemData.CurrentQuantity > 0)
                 {
-                    _itemInventoryDictionary[itemData] = _itemInventoryDictionary[itemData] + 1;
-                }
-                else
-                {
-                    _itemInventoryDictionary.Add(itemData, 1);
-                    _itemsInventoryList.Add(itemData);
+                    if (_itemInventoryDictionary.ContainsKey(itemData))
+                    {
+                        _itemInventoryDictionary[itemData] += 1;
+                    }
+                    else
+                    {
+                        _itemInventoryDictionary.Add(itemData, 1);
+                        _itemsInventoryList.Add(itemData);
+                    }
                 }
             }
         }
@@ -98,7 +104,11 @@ namespace AmazingShop.Inventory
                 if (itemObject.TryGetComponent<ItemToDisplay>(out ItemToDisplay itemToDisplay))
                 {
                     itemToDisplay.ItemData = itemData;
-                    SellItemController sellItemController = itemObject.gameObject.AddComponent<SellItemController>();
+
+                    if (_sellCanvas.activeInHierarchy)
+                    {
+                        SellItemController sellItemController = itemObject.gameObject.AddComponent<SellItemController>();
+                    }
                 }
 
                 if (_activePanel && itemObject.TryGetComponent<ItemPanelController>(out ItemPanelController itemPanelController))

@@ -17,4 +17,5 @@ MonoBehaviour:
   _purchasePrice: 10
   _sellingPrice: 13
   _description: Shield to protect against enemy attacks in combat.
+  _currentQuantity: 1
   _quantityMax: 2

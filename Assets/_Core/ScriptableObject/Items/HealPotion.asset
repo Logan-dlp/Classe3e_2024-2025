@@ -17,4 +17,5 @@ MonoBehaviour:
   _purchasePrice: 20
   _sellingPrice: 23
   _description: You regain hit points when you drink this potion
+  _currentQuantity: 1
   _quantityMax: 10

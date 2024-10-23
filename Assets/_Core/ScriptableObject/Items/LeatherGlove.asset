@@ -18,4 +18,5 @@ MonoBehaviour:
   _sellingPrice: 7
   _description: Leather gloves are made from genuine leather. They will enable you
     to hold your weapon with a steady hand during a fight.
+  _currentQuantity: 1
   _quantityMax: 5
