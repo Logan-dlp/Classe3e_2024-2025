@@ -41,5 +41,13 @@ namespace AmazingShop.Display
             _purchaseText.text = itemData.PurchasePrice.ToString();
             _sellingText.text = itemData.SellingPrice.ToString();
         }
+
+        public void SetPosition(Vector3 vector)
+        {
+            Vector3 pos = vector + (Vector3)_displayOffset;
+            pos.x = Mathf.Clamp(pos.x, Screen.safeArea.xMin, Screen.safeArea.xMax / _panelSize.x);
+            pos.y = Mathf.Clamp(pos.y, Screen.safeArea.yMin + (Screen.safeArea.yMax * _panelSize.y), Screen.safeArea.yMax);
+            transform.position = pos;
+        }
     }
 }
