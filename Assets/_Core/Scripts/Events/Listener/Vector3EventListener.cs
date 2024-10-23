@@ -1,6 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using AmazingShop.Item;
 using UnityEngine;
 using UnityEngine.Events;
 

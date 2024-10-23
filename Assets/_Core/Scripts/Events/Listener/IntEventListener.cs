@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -8,7 +7,7 @@ namespace AmazingShop.Events
     {
         [SerializeField] private IntEvent _intEvent;
         [SerializeField] private UnityEvent<int> _callbacks;
-
+        
         private void OnEnable()
         {
             _intEvent.IntAction += InvokeEvent;

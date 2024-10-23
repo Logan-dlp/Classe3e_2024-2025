@@ -1,9 +1,9 @@
-using System;
 using UnityEngine;
 using UnityEngine.UI;
 using System.Collections.Generic;
 using AmazingShop.Display;
 using AmazingShop.Item;
+using AmazingShop.Buy;
 
 namespace AmazingShop.Inventory
 {

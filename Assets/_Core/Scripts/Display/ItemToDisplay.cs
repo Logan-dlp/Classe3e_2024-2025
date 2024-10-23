@@ -1,4 +1,5 @@
-using System;
+using AmazingShop.Buy;
+using AmazingShop.Events;
 using AmazingShop.Item;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -8,20 +9,50 @@ namespace AmazingShop.Display
 {
     public class ItemToDisplay : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, ISelectHandler, IDeselectHandler
     {
-        [SerializeField] private Events.BoolEvent _triggerDetail;
-        [SerializeField] private Events.BoolEvent _usePointer;
-        [SerializeField] private Events.ItemEvent _itemEvent;
-        [SerializeField] private Events.Vector3Event _vectorEvent;
+        [SerializeField] private BoolEvent _triggerDetail;
+        [SerializeField] private BoolEvent _usePointer;
+        [SerializeField] private ItemEvent _itemEvent;
+        [SerializeField] private Vector3Event _vectorEvent;
         [SerializeField] private Image _image;
-        
+
         private ItemData _itemData;
+        private BuyItemController _buyItemControler;
+        private SellItemController _sellItemController;
+        private bool _useMousePointer = false;
+
+        public BuyItemController BuyItemControllerScript
+        {
+            get => _buyItemControler;
+            set => _buyItemControler = value;
+        }
+        
+        public SellItemController SellItemControllerScript
+        {
+            get => _sellItemController;
+            set => _sellItemController = value;
+        }
+
         public ItemData ItemData
         {
             get => _itemData;
             set => _itemData = value;
         }
-        
-        private bool _useMousePointer = false;
+
+        public ItemEvent ItemEvent 
+        { 
+            get => _itemEvent;
+            set => _itemEvent = value;
+        }
+
+        public void BuySellItem()
+        {
+            if(_buyItemControler != null)
+            {
+                _buyItemControler.BuyItem();
+                return;
+            }
+            _sellItemController.SellItem();
+        }
 
         public void SendData()
         {
@@ -32,7 +63,7 @@ namespace AmazingShop.Display
         {
             _usePointer.InvokeEvent(false);
             _triggerDetail.InvokeEvent(true);
-            _itemEvent.InvokeEvent(ItemData);
+            ItemEvent.InvokeEvent(ItemData);
             _vectorEvent.InvokeEvent(transform.position);
         }
 
@@ -45,7 +76,7 @@ namespace AmazingShop.Display
         {
             _usePointer.InvokeEvent(true);
             _triggerDetail.InvokeEvent(true);
-            _itemEvent.InvokeEvent(ItemData);
+            ItemEvent.InvokeEvent(ItemData);
         }
 
         public void OnPointerExit(PointerEventData eventData)

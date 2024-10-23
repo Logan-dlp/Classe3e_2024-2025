@@ -5,48 +5,65 @@ using AmazingShop.Trading;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class SellItemController : MonoBehaviour, IPointerClickHandler
+
+namespace AmazingShop.Buy
 {
-    private ItemToDisplay _itemToDisplay;
-    private MoneyManagement _moneyManagement;
-    private DisplayInventoryItem _displayInventory;
-
-    private void Start()
+    public class SellItemController : MonoBehaviour, IPointerClickHandler
     {
-        _itemToDisplay = GetComponentInChildren<ItemToDisplay>();
-        _moneyManagement = FindObjectOfType<MoneyManagement>();
-        _displayInventory = FindObjectOfType<DisplayInventoryItem>();
-    }
+        [SerializeField] private Events.ItemEvent _itemEvent;
 
-    public void OnPointerClick(PointerEventData eventData)
-    {
-        if (_itemToDisplay != null && _moneyManagement != null)
+        private ItemToDisplay _itemToDisplay;
+        private MoneyManagement _moneyManagement;
+        private DisplayInventoryItem _displayInventory;
+
+        private void Start()
         {
-            ItemData clickedItemData = _itemToDisplay.ItemData;
+            _itemToDisplay = GetComponentInChildren<ItemToDisplay>();
+            _moneyManagement = FindObjectOfType<MoneyManagement>();
+            _displayInventory = FindObjectOfType<DisplayInventoryItem>();
 
-            if (clickedItemData.CurrentQuantity > 0)
+            _itemEvent = _itemToDisplay.ItemEvent;
+
+            GetComponent<ItemToDisplay>().SellItemControllerScript = this;
+        
+        }
+
+        public void SellItem()
+        {
+            if (_itemToDisplay != null && _moneyManagement != null)
             {
-                clickedItemData.CurrentQuantity--;
-                _moneyManagement.AddMoney(clickedItemData.SellingPrice);
+                ItemData clickedItemData = _itemToDisplay.ItemData;
 
-                Debug.Log($"Article cliqué : {clickedItemData.Name}, Prix : {clickedItemData.SellingPrice}, Nombre : {clickedItemData.CurrentQuantity}");
-
-                ItemPanelController itemPanelController = GetComponentInChildren<ItemPanelController>();
-                if (itemPanelController != null)
+                if (clickedItemData.CurrentQuantity > 0)
                 {
-                    itemPanelController.SetNumberOnPanel(clickedItemData.CurrentQuantity);
+                    clickedItemData.CurrentQuantity--;
+                    _moneyManagement.AddMoney(clickedItemData.SellingPrice);
+
+                    Debug.Log($"Article cliqué : {clickedItemData.Name}, Prix : {clickedItemData.SellingPrice}, Nombre : {clickedItemData.CurrentQuantity}");
+
+                    _itemEvent.InvokeEvent(clickedItemData);
+
+                    ItemPanelController itemPanelController = GetComponentInChildren<ItemPanelController>();
+                    if (itemPanelController != null)
+                    {
+                        itemPanelController.SetNumberOnPanel(clickedItemData.CurrentQuantity);
+                    }
+
+                    if (clickedItemData.CurrentQuantity == 0)
+                    {
+                        _displayInventory.RemoveItem(clickedItemData);
+                        Destroy(_itemToDisplay.gameObject);
+                    }
                 }
-
-                if (clickedItemData.CurrentQuantity == 0)
+                else
                 {
-                    _displayInventory.RemoveItem(clickedItemData);
-                    Destroy(_itemToDisplay.gameObject);
+                    Debug.LogWarning("Quantité d'article insuffisante pour la vente.");
                 }
             }
-            else
-            {
-                Debug.LogWarning("Quantité d'article insuffisante pour la vente.");
-            }
+        }
+        public void OnPointerClick(PointerEventData eventData)
+        {
+            SellItem();
         }
     }
 }
