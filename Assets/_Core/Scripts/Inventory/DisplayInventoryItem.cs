@@ -120,6 +120,10 @@ namespace AmazingShop.Inventory
                 _currentPageIndex++;
                 DisplayItems();
             }
+            if((_currentPageIndex + 1) * ItemsPerPage > _itemsInventoryList.Count)
+            {
+                _previousButton.Select();
+            }
         }
 
         private void DisplayPreviousItems()
@@ -128,6 +132,10 @@ namespace AmazingShop.Inventory
             {
                 _currentPageIndex--;
                 DisplayItems();
+            }
+            if(_currentPageIndex == 0)
+            {
+                _nextButton.Select();
             }
         }
 
