@@ -1,5 +1,6 @@
 using AmazingShop.Display;
 using AmazingShop.Item;
+using AmazingShop.Trading;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -9,29 +10,39 @@ namespace AmazingShop.Buy
     {
         private DisplayItemFrame _displayItemFrame;
         private ItemToDisplay _itemToDisplay;
-
+        private MoneyManagement _moneyManagement;
         private void Start()
         {
             _displayItemFrame = GetComponentInParent<DisplayItemFrame>();
             _itemToDisplay = GetComponentInChildren<ItemToDisplay>();
+            _moneyManagement = FindObjectOfType<MoneyManagement>();
         }
 
         public void OnPointerClick(PointerEventData eventData)
         {
-            if (_displayItemFrame != null && _itemToDisplay != null)
+            if (_displayItemFrame != null && _itemToDisplay != null && _moneyManagement != null)
             {
                 ItemData clickedItemData = _itemToDisplay.ItemData;
 
-                clickedItemData.CurrentQuantity++;
-                Debug.Log($"Article cliqué : {clickedItemData.Name}, Prix : {clickedItemData.PurchasePrice}, Nombre : {clickedItemData.CurrentQuantity}");
-
-                ItemPanelController itemPanelController = GetComponentInChildren<ItemPanelController>();
-                if (itemPanelController != null)
+                if (_moneyManagement.MoneyCount >= clickedItemData.PurchasePrice)
                 {
-                    itemPanelController.SetNumberOnPanel(clickedItemData.CurrentQuantity);
-                }
+                    clickedItemData.CurrentQuantity++;
+                    _moneyManagement.WithdrawMoney(clickedItemData.PurchasePrice);
 
-                _displayItemFrame.DestroyItem(gameObject);
+                    Debug.Log($"Article cliqué : {clickedItemData.Name}, Prix : {clickedItemData.PurchasePrice}, Nombre : {clickedItemData.CurrentQuantity}");
+
+                    ItemPanelController itemPanelController = GetComponentInChildren<ItemPanelController>();
+                    if (itemPanelController != null)
+                    {
+                        itemPanelController.SetNumberOnPanel(clickedItemData.CurrentQuantity);
+                    }
+
+                    _displayItemFrame.DestroyItem(gameObject);
+                }
+                else
+                {
+                    Debug.LogWarning("Fonds insuffisants pour acheter cet article.");
+                }
             }
         }
     }

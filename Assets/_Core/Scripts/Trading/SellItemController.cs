@@ -1,34 +1,43 @@
 using AmazingShop.Display;
 using AmazingShop.Item;
-using System.Collections;
-using System.Collections.Generic;
+using AmazingShop.Trading;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
 public class SellItemController : MonoBehaviour, IPointerClickHandler
 {
     private ItemToDisplay _itemToDisplay;
+    private MoneyManagement _moneyManagement;
 
     private void Start()
     {
         _itemToDisplay = GetComponentInChildren<ItemToDisplay>();
+        _moneyManagement = FindObjectOfType<MoneyManagement>();
     }
 
     public void OnPointerClick(PointerEventData eventData)
     {
-        if (_itemToDisplay != null)
+        if (_itemToDisplay != null && _moneyManagement != null)
         {
             ItemData clickedItemData = _itemToDisplay.ItemData;
 
-            clickedItemData.CurrentQuantity--;
-            Debug.Log($"Article cliqué : {clickedItemData.Name}, Prix : {clickedItemData.SellingPrice}, Nombre : {clickedItemData.CurrentQuantity}");
-
-            ItemPanelController itemPanelController = GetComponentInChildren<ItemPanelController>();
-            if (itemPanelController != null)
+            if (clickedItemData.CurrentQuantity > 0)
             {
-                itemPanelController.SetNumberOnPanel(clickedItemData.CurrentQuantity);
+                clickedItemData.CurrentQuantity--;
+                _moneyManagement.AddMoney(clickedItemData.SellingPrice);
+
+                Debug.Log($"Article cliqué : {clickedItemData.Name}, Prix : {clickedItemData.SellingPrice}, Nombre : {clickedItemData.CurrentQuantity}");
+
+                ItemPanelController itemPanelController = GetComponentInChildren<ItemPanelController>();
+                if (itemPanelController != null)
+                {
+                    itemPanelController.SetNumberOnPanel(clickedItemData.CurrentQuantity);
+                }
+            }
+            else
+            {
+                Debug.LogWarning("Quantité d'article insuffisante pour la vente.");
             }
         }
-
     }
 }
