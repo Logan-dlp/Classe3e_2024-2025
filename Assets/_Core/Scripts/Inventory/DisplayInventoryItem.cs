@@ -98,6 +98,7 @@ namespace AmazingShop.Inventory
                 if (itemObject.TryGetComponent<ItemToDisplay>(out ItemToDisplay itemToDisplay))
                 {
                     itemToDisplay.ItemData = itemData;
+                    SellItemController sellItemController = itemObject.gameObject.AddComponent<SellItemController>();
                 }
 
                 if (_activePanel && itemObject.TryGetComponent<ItemPanelController>(out ItemPanelController itemPanelController))

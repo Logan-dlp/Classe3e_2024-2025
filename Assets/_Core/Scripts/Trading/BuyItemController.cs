@@ -21,10 +21,9 @@ namespace AmazingShop.Buy
             if (_displayItemFrame != null && _itemToDisplay != null)
             {
                 ItemData clickedItemData = _itemToDisplay.ItemData;
-                Debug.Log($"Article cliqué : {clickedItemData.Name}, Prix : {clickedItemData.PurchasePrice}");
 
                 clickedItemData.CurrentQuantity++;
-                Debug.Log(clickedItemData.CurrentQuantity);
+                Debug.Log($"Article cliqué : {clickedItemData.Name}, Prix : {clickedItemData.PurchasePrice}, Nombre : {clickedItemData.CurrentQuantity}");
 
                 ItemPanelController itemPanelController = GetComponentInChildren<ItemPanelController>();
                 if (itemPanelController != null)
