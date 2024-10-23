@@ -18,4 +18,5 @@ MonoBehaviour:
   _sellingPrice: 23
   _description: 'Bronze ingots are 99.9% bronze ore. Ingots are manufactured using
     two industrial processes: casting and extrusion.'
+  _currentQuantity: 1
   _quantityMax: 20

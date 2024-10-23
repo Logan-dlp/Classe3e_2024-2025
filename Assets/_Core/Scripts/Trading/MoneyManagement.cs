@@ -8,7 +8,7 @@ namespace AmazingShop.Trading
     {
         [SerializeField] private IntEvent _moneyEvent;
         
-        private int _moneyCount = 0;
+        private int _moneyCount = 100;
         public int MoneyCount => _moneyCount;
 
         private void Start()

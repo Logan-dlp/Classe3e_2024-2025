@@ -17,4 +17,5 @@ MonoBehaviour:
   _purchasePrice: 20
   _sellingPrice: 25
   _description: Pair of leather gloves for conjuring spells.
+  _currentQuantity: 1
   _quantityMax: 5

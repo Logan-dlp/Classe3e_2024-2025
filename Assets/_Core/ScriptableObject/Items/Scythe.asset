@@ -17,4 +17,5 @@ MonoBehaviour:
   _purchasePrice: 11
   _sellingPrice: 13
   _description: A stone tool used to cut the grass underfoot
+  _currentQuantity: 1
   _quantityMax: 3

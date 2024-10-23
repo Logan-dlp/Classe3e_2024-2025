@@ -17,4 +17,5 @@ MonoBehaviour:
   _purchasePrice: 20
   _sellingPrice: 23
   _description: An anvil is a tool used to forge metals
+  _currentQuantity: 1
   _quantityMax: 1

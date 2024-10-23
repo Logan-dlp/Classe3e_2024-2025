@@ -17,4 +17,5 @@ MonoBehaviour:
   _purchasePrice: 2
   _sellingPrice: 3
   _description: Medicinal herb
+  _currentQuantity: 1
   _quantityMax: 20

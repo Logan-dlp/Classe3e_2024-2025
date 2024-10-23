@@ -22,10 +22,13 @@ namespace AmazingShop.Inventory
         [SerializeField] private Button _nextButton;
         [SerializeField] private Button _previousButton;
 
+        [Header("GameObject du canvas Sell")]
+        [SerializeField] private GameObject _sellCanvas;
+
         [SerializeField] private bool _activePanel;
-        
+
         private int _currentPageIndex;
-        
+
         private Dictionary<ItemData, int> _itemInventoryDictionary = new();
         private List<ItemData> _itemsInventoryList = new();
 
@@ -38,7 +41,7 @@ namespace AmazingShop.Inventory
         private void OnEnable()
         {
             _currentPageIndex = 0;
-            
+
             InitializeItems();
             DisplayItems();
         }
@@ -55,16 +58,12 @@ namespace AmazingShop.Inventory
         {
             _itemInventoryDictionary.Clear();
             _itemsInventoryList.Clear();
-            
+
             foreach (ItemData itemData in _itemDataList.ItemDataList)
             {
-                if (_itemInventoryDictionary.ContainsKey(itemData))
+                if (itemData.CurrentQuantity > 0)
                 {
-                    _itemInventoryDictionary[itemData] = _itemInventoryDictionary[itemData] + 1;
-                }
-                else
-                {
-                    _itemInventoryDictionary.Add(itemData, 1);
+                    _itemInventoryDictionary[itemData] = itemData.CurrentQuantity;
                     _itemsInventoryList.Add(itemData);
                 }
             }
@@ -85,28 +84,34 @@ namespace AmazingShop.Inventory
                 ItemData itemData = _itemsInventoryList[i];
 
                 GameObject itemObject = Instantiate(_itemPrefab, _parentItem.transform);
-                
+
                 if (itemObject.TryGetComponent<Image>(out Image imageComponent))
                 {
                     imageComponent.sprite = itemData.Sprite;
                 }
                 else
                 {
-                    Debug.LogError("Not find Image Component !");
+                    Debug.LogError("Component Image non trouvé !");
                 }
 
                 if (itemObject.TryGetComponent<ItemToDisplay>(out ItemToDisplay itemToDisplay))
                 {
                     itemToDisplay.ItemData = itemData;
+
+                    if (_sellCanvas.activeInHierarchy)
+                    {
+                        SellItemController sellItemController = itemObject.AddComponent<SellItemController>();
+                    }
                 }
 
                 if (_activePanel && itemObject.TryGetComponent<ItemPanelController>(out ItemPanelController itemPanelController))
                 {
                     itemPanelController.ActivatePanel();
-                    itemPanelController.SetNumberOnPanel(_itemInventoryDictionary[itemData]);
-                }else if (_activePanel)
+                    itemPanelController.SetNumberOnPanel(itemData.CurrentQuantity);
+                }
+                else if (_activePanel)
                 {
-                    Debug.LogError("Not find ItemPanelController Component !");
+                    Debug.LogError("Component ItemPanelController non trouvé !");
                 }
             }
 
@@ -143,6 +148,20 @@ namespace AmazingShop.Inventory
         {
             _nextButton.interactable = (_currentPageIndex + 1) * ItemsPerPage < _itemsInventoryList.Count;
             _previousButton.interactable = _currentPageIndex > 0;
+        }
+
+        public void RemoveItem(ItemData itemData)
+        {
+            if (_itemsInventoryList.Contains(itemData))
+            {
+                _itemsInventoryList.Remove(itemData);
+
+                if (_currentPageIndex >= (_itemsInventoryList.Count + ItemsPerPage - 1) / ItemsPerPage)
+                {
+                    _currentPageIndex--;
+                }
+                DisplayItems();
+            }
         }
     }
 }

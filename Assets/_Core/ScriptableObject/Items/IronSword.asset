@@ -17,4 +17,5 @@ MonoBehaviour:
   _purchasePrice: 10
   _sellingPrice: 15
   _description: Easy-to-master sword for fighting enemies.
+  _currentQuantity: 1
   _quantityMax: 3
