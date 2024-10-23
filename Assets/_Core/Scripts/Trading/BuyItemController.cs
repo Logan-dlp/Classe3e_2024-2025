@@ -11,6 +11,7 @@ namespace AmazingShop.Buy
         private DisplayItemFrame _displayItemFrame;
         private ItemToDisplay _itemToDisplay;
         private MoneyManagement _moneyManagement;
+
         private void Start()
         {
             _displayItemFrame = GetComponentInParent<DisplayItemFrame>();
@@ -26,18 +27,24 @@ namespace AmazingShop.Buy
 
                 if (_moneyManagement.MoneyCount >= clickedItemData.PurchasePrice)
                 {
-                    clickedItemData.CurrentQuantity++;
-                    _moneyManagement.WithdrawMoney(clickedItemData.PurchasePrice);
-
-                    Debug.Log($"Article cliqué : {clickedItemData.Name}, Prix : {clickedItemData.PurchasePrice}, Nombre : {clickedItemData.CurrentQuantity}");
-
-                    ItemPanelController itemPanelController = GetComponentInChildren<ItemPanelController>();
-                    if (itemPanelController != null)
+                    if (clickedItemData.CurrentQuantity < clickedItemData.QuantityMax)
                     {
-                        itemPanelController.SetNumberOnPanel(clickedItemData.CurrentQuantity);
-                    }
+                        clickedItemData.CurrentQuantity++;
+                        _moneyManagement.WithdrawMoney(clickedItemData.PurchasePrice);
+                        Debug.Log($"Article cliqué : {clickedItemData.Name}, Prix : {clickedItemData.PurchasePrice}, Nombre : {clickedItemData.CurrentQuantity}");
 
-                    _displayItemFrame.DestroyItem(gameObject);
+                        ItemPanelController itemPanelController = GetComponentInChildren<ItemPanelController>();
+                        if (itemPanelController != null)
+                        {
+                            itemPanelController.SetNumberOnPanel(clickedItemData.CurrentQuantity);
+                        }
+
+                        _displayItemFrame.DestroyItem(gameObject);
+                    }
+                    else
+                    {
+                        Debug.LogWarning("Quantité maximale atteinte pour cet article.");
+                    }
                 }
                 else
                 {
